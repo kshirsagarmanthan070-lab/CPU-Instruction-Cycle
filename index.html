@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="theme-color" content="#f4f8fc">
+<title>CPU Instruction Cycle Simulator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>CPU Instruction Cycle</h1>
+<p>Interactive Simulator | Fetch • Decode • Execute</p>
+</header>
+
+<main>
+<section class="panel">
+<h2>How does a CPU work?</h2>
+<p>The CPU executes instructions in three main stages:</p>
+<div class="grid">
+<div class="block"><h3>01. Fetch</h3>Get the next instruction from memory.</div>
+<div class="block"><h3>02. Decode</h3>The Control Unit interprets the instruction.</div>
+<div class="block"><h3>03. Execute</h3>Perform the operation and update the result.</div>
+</div>
+</section>
+
+<section class="panel">
+<h2>CPU Architecture</h2>
+<div class="cpu">
+<div class="block" id="pcbox">Program Counter (PC)<div class="value" id="pc">0</div></div>
+<div class="block" id="irbox">Instruction Register (IR)<div class="value" id="ir">---</div></div>
+<div class="block" id="cubox">Control Unit<div class="value">CU</div></div>
+<div class="block" id="alubox">Arithmetic Logic Unit<div class="value">ALU</div></div>
+<div class="block" id="abox">Accumulator (A)<div class="value" id="acc">0</div></div>
+<div class="block">Main Memory<div class="value" id="mem">4</div></div>
+</div>
+<p class="status" id="phase">Ready to start</p>
+<p id="explanation">Choose an instruction and press Start.</p>
+</section>
+
+<section class="panel">
+<h2>Run the Simulation</h2>
+<label for="program">Select program: </label>
+<select id="program">
+<option value="add">LOAD A, 5 → ADD A, 3 → STORE A</option>
+<option value="sub">LOAD A, 9 → SUB A, 4 → STORE A</option>
+</select>
+<p>
+<button id="start">Start / Restart</button>
+<button id="next" disabled>Next Step</button>
+<button id="run" disabled>Run All</button>
+<button id="reset">Reset</button>
+</p>
+<p id="progress">Instruction: 0 / 3</p>
+<div id="log">Simulation log will appear here.</div>
+</section>
+
+<section class="panel">
+<h2>Live Registers</h2>
+<table>
+<thead><tr><th>Register</th><th>Purpose</th><th>Current Value</th></tr></thead>
+<tbody>
+<tr><td>PC</td><td>Address of next instruction</td><td id="pc2">0</td></tr>
+<tr><td>IR</td><td>Current instruction</td><td id="ir2">---</td></tr>
+<tr><td>ACC</td><td>Stores calculation result</td><td id="acc2">0</td></tr>
+<tr><td>Memory[100]</td><td>Stored data</td><td id="mem2">4</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="panel">
+<h2>Test Your Knowledge</h2>
+<p id="question">Which stage brings an instruction from memory?</p>
+<button onclick="answer(0)">Fetch</button>
+<button onclick="answer(1)">Decode</button>
+<button onclick="answer(2)">Execute</button>
+<p id="quizresult"></p>
+</section>
+</main>
+<footer>CPU Instruction Cycle Simulator • Educational Project</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
